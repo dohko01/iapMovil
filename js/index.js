@@ -3,22 +3,9 @@
 $(document).ready(function(){
 //document.addEventListener("deviceready", function(){
 //function onDeviceReady(){
-	$(document).bind ('pageshow', function (e, data) {
-        if ($.mobile.activePage.attr('id') == 'home') {
-            document.addEventListener("backbutton", function () { 
-				alert("aqui ando -.-");
-                setTimeout( function() {navigator.app.exitApp();}, 100 );
-            }, true);
-        }
-        else{
-            document.addEventListener("backbutton", function () {
-                setTimeout( function() {$.mobile.changePage("#index");}, 100 );
-            }, true);
-        }
-    });
-	
+	isUserLogged();
 	$('#botonLogin').click(function(){
-		alert('asdfasdfasdf');
+		//alert('asdfasdfasdf');
 		var datosUsuario = $("#usuario").val();
 		var datosPassword = $("#pw").val();
 	 
@@ -88,15 +75,82 @@ function checkUser(tx) {
 }
 
 function errorCB(err) {
-    $.mobile.changePage('#login','slide');
+    $.ajax({
+		type : 'POST',           
+		url : 'login.html',           
+		data:{
+			'usuario':datosUsuario,
+			'pw':datosPassword
+		},
+		beforeSend: function(){
+			$('#loading').show();
+		},
+		success : function(data) {
+			if(data==1){
+				$('#home').html(data)
+			} else {
+				alert("Invalid Login!!"); 
+			}
+			$('#loading').hide();
+		},
+		error : function(xhr, type) {
+			alert('server error occurred');
+			$('#loading').hide();
+		}
+	});
 }
 
 function successQuery(tx, result) {
 	if(result.rows.length > 0){
-    	$.mobile.changePage('#home','slide');
+    	$.ajax({
+			type : 'POST',           
+			url : 'main.html',           
+			data:{
+				'usuario':datosUsuario,
+				'pw':datosPassword
+			},
+			beforeSend: function(){
+				$('#loading').show();
+			},
+			success : function(data) {
+				if(data==1){
+					$('#home').html(data)
+				} else {
+					alert("Invalid Login!!"); 
+				}
+				$('#loading').hide();
+			},
+			error : function(xhr, type) {
+				alert('server error occurred');
+				$('#loading').hide();
+			}
+		});
 	}
-	else
-		$.mobile.changePage('#login','slide');
+	else{
+		$.ajax({
+			type : 'POST',           
+			url : 'login.html',           
+			data:{
+				'usuario':datosUsuario,
+				'pw':datosPassword
+			},
+			beforeSend: function(){
+				$('#loading').show();
+			},
+			success : function(data) {
+				if(data==1){
+					$('#home').html(data)
+				} else {
+					alert("Invalid Login!!"); 
+				}
+				$('#loading').hide();
+			},
+			error : function(xhr, type) {
+				alert('server error occurred');
+				$('#loading').hide();
+			}
+		});
+	}
 }
 
 function successCB() {
