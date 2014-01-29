@@ -59,5 +59,5 @@ function setOverrideBackbutton()
 	{
 		navigator.app.overrideBackbutton(true);
 	}
-	document.addEventListener("backbutton", function(){isUserLogged();}, true);
+	document.addEventListener("backbutton", function(){isUserLogged(); alert("LOL NO SIRVE!!!");}, true);
 }
