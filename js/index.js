@@ -52,6 +52,7 @@ function insertUsuario(tx) {
 
 function successCreate() {
     $.mobile.changePage('#home','slide');
+	$('.login').remove();
 }
 
 function setOverrideBackbutton()
@@ -82,7 +83,7 @@ function errorCB(err) {
 function successQuery(tx, result) {
 	alert(result.rows.length);
 	if(result.rows.length > 0){
-		$( "#login" ).remove();
+		$( ".login" ).remove();
     	$.mobile.changePage('#home','slide');
 	}
 	else
