@@ -1,5 +1,5 @@
-//$(document).ready(function(){
-document.addEventListener("deviceready", function(){
+$(document).ready(function(){
+//document.addEventListener("deviceready", function(){
 	isUserLogged();
 	
 	$('#botonLogin').click(function(){
@@ -8,7 +8,7 @@ document.addEventListener("deviceready", function(){
 	 
 		$.ajax({
 			type : 'POST',           
-			url : 'http://192.168.161.131:45001/iapMovil/loginValidation.php',           
+			url : 'http://192.168.66:45001/iapMovil/loginValidation.php',           
 			data:{
 				'usuario':datosUsuario,
 				'pw':datosPassword
