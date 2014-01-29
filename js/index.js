@@ -3,15 +3,19 @@
 $(document).ready(function(){
 //document.addEventListener("deviceready", function(){
 //function onDeviceReady(){
-	document.addEventListener("backbutton", function(e){
-		if($.mobile.activePage.is('#home')){
-			e.preventDefault();
-			navigator.app.exitApp();
-		}
-		else {
-			navigator.app.backHistory()
-		}
-	}, false);
+	$(document).bind ('pageshow', function (e, data) {
+        if ($.mobile.activePage.attr('id') == 'home') {
+            document.addEventListener("backbutton", function () { 
+				alert("aqui ando -.-");
+                setTimeout( function() {navigator.app.exitApp();}, 100 );
+            }, true);
+        }
+        else{
+            document.addEventListener("backbutton", function () {
+                setTimeout( function() {$.mobile.changePage("#index");}, 100 );
+            }, true);
+        }
+    });
 	
 	$('#botonLogin').click(function(){
 		alert('asdfasdfasdf');
