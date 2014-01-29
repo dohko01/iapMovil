@@ -49,31 +49,6 @@ function insertUsuario(tx) {
      tx.executeSql('INSERT INTO usuario (usuario, pw) VALUES ("'+datosUsuario+'", "'+datosPassword+'")');
 }
 
-function isUserLogged()
-{
-	var db = window.openDatabase("test", "1.0", "iapTest", 200000);
-	db.transaction(checkUser, errorCB, successCB);
-}
-
-function checkUser(tx) {
-	var usuario = $("#usuario").val();
-	var pw = $("#pw").val();
-	tx.executeSql('SELECT * FROM usuario', [], successQuery, errorCB);	
-}
-
-function errorCB(err) {
-    alert("Error processing SQL: "+err.code);
-}
-
-function successQuery(tx, result) {
-	if(result.rows.length > 0)
-    	$.mobile.changePage('main.html','slide');
-}
-
-function successCB() {
-    alert("success!");
-}
-
 function successCreate() {
-    $.mobile.changePage('/main.html','slide');
+    $.mobile.changePage('main.html','slide');
 }
