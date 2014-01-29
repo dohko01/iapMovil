@@ -60,7 +60,7 @@ function setOverrideBackbutton()
 	{
 		navigator.app.overrideBackbutton(true);
 	}
-	document.addEventListener("backbutton", function(){isUserLogged(); alert("LOL NO SIRVE!!!");}, true);
+	document.addEventListener("backbutton", function(){alert("LOL NO SIRVE!!!");}, true);
 }
 
 /********** END LOGIN ************************/
@@ -81,8 +81,10 @@ function errorCB(err) {
 
 function successQuery(tx, result) {
 	alert(result.rows.length);
-	if(result.rows.length > 0)
-    	$.mobile.changePage('#main','slide');
+	if(result.rows.length > 0){
+		$( "#home" ).remove();
+    	$.mobile.changePage('#home','slide');
+	}
 	else
 		$.mobile.changePage('#login','slide');
 }
