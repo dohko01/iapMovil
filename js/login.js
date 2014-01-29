@@ -3,6 +3,7 @@ document.addEventListener("deviceready", function(){
 	isUserLogged();
 	
 	$('#botonLogin').click(function(){
+		alert('asdfasdfasdf');
 		var datosUsuario = $("#usuario").val();
 		var datosPassword = $("#pw").val();
 	 
