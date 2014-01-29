@@ -2,7 +2,8 @@
 $(document).ready(function(){
 //document.addEventListener("deviceready", function(){
 //function onDeviceReady(){
-	document.addEventListener("backbutton", isUserLogged(), false);
+	document.addEventListener("deviceready", setOverrideBackbutton, false);
+	
 	$('#botonLogin').click(function(){
 		alert('asdfasdfasdf');
 		var datosUsuario = $("#usuario").val();
@@ -50,4 +51,13 @@ function insertUsuario(tx) {
 
 function successCreate() {
     $.mobile.changePage('main.html','slide');
+}
+
+function setOverrideBackbutton()
+{
+	if (typeof device != "undefined" && device.platform == "Android")
+	{
+		navigator.app.overrideBackbutton(true);
+	}
+	document.addEventListener("backbutton", function(){isUserLogged();}, true);
 }
