@@ -89,10 +89,13 @@ function errorCB(err) {
 
 function successQuery(tx, result) {
 	if(result.rows.length > 0){
-    	$.mobile.changePage('#home','slide');
+    	//$.mobile.changePage('#home','slide');
+		window.location.replace('main.html');
 	}
-	else
-		$.mobile.changePage('#login','slide');
+	else{
+		//$.mobile.changePage('#login','slide');
+		window.location.replace('index.html');
+	}
 }
 
 function successCB() {
