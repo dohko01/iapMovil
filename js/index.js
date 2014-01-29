@@ -82,7 +82,7 @@ function errorCB(err) {
 function successQuery(tx, result) {
 	alert(result.rows.length);
 	if(result.rows.length > 0){
-		$( "#home" ).remove();
+		$( "#login" ).remove();
     	$.mobile.changePage('#home','slide');
 	}
 	else
