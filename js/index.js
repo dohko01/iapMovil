@@ -90,7 +90,6 @@ function errorCB(err) {
 function successQuery(tx, result) {
 	if(result.rows.length > 0){
     	$.mobile.changePage('#home','slide');
-		$('#login').hide();
 	}
 	else
 		$.mobile.changePage('#login','slide');
