@@ -44,5 +44,27 @@
         <a id="bars-button" data-icon="bars"  class="ui-btn-left" style="margin-top:10px;" href="#navpanel">Menu</a>
     </div>
 </div>
+
+<div data-role="page" id="login" data-theme="b">
+ 
+	<div data-role="header" data-theme="b">
+		<h1>Autenticacion de Usuario</h1>
+	</div>
+    
+	<div data-role="content" align="center">	
+        <form id="login-form" method="post">
+            <label> Usuario </label>
+            <input type="text" id="usuario" name="usuario">
+        
+            <label> Contrase&ntilde;a </label>
+            <input type="password" id="pw" name="pw" >
+        
+            <input type="button" value="Login" id="botonLogin">
+        
+        </form>
+        <div id="loading" style="position:absolute; width:100%; display:none" align="center"><img src="jquery-mobile/images/ajax-loader.gif"></div>
+	</div>
+</div>
+
 </body>
 </html>
