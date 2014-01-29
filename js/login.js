@@ -2,8 +2,6 @@
 $(document).ready(function(){
 //document.addEventListener("deviceready", function(){
 //function onDeviceReady(){
-	isUserLogged();
-	
 	$('#botonLogin').click(function(){
 		alert('asdfasdfasdf');
 		var datosUsuario = $("#usuario").val();
