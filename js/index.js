@@ -3,7 +3,15 @@
 $(document).ready(function(){
 //document.addEventListener("deviceready", function(){
 //function onDeviceReady(){
-	document.addEventListener("deviceready", setOverrideBackbutton, false);
+	document.addEventListener("backbutton", function(e){
+		if($.mobile.activePage.is('#home')){
+			e.preventDefault();
+			navigator.app.exitApp();
+		}
+		else {
+			navigator.app.backHistory()
+		}
+	}, false);
 	
 	$('#botonLogin').click(function(){
 		alert('asdfasdfasdf');
@@ -52,7 +60,6 @@ function insertUsuario(tx) {
 
 function successCreate() {
     $.mobile.changePage('#home','slide');
-	$('.login').remove();
 }
 
 function setOverrideBackbutton()
@@ -81,9 +88,7 @@ function errorCB(err) {
 }
 
 function successQuery(tx, result) {
-	alert(result.rows.length);
 	if(result.rows.length > 0){
-		$( ".login" ).remove();
     	$.mobile.changePage('#home','slide');
 	}
 	else
