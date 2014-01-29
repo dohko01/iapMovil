@@ -13,16 +13,20 @@ document.addEventListener("deviceready", function(){
 				'usuario':datosUsuario,
 				'pw':datosPassword
 			},
-			success : function(data) {            
+			beforeSend: function(){
+				$('#loading').show();
+			},
+			success : function(data) {
 				if(data==1){
 					createInfoData(datosUsuario, datosPassword);
 				} else {
 					alert("Invalid Login!!"); 
 				}
+				$('#loading').hide();
 			},
 			error : function(xhr, type) {
 				alert('server error occurred');
-				event.preventDefault();
+				$('#loading').hide();
 			}
 		});
 	});
