@@ -1,4 +1,5 @@
 //document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener("backbutton", isUserLogged(), false);
 $(document).ready(function(){
 //document.addEventListener("deviceready", function(){
 //function onDeviceReady(){
