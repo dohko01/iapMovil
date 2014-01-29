@@ -3,9 +3,18 @@
 $(document).ready(function(){
 //document.addEventListener("deviceready", function(){
 //function onDeviceReady(){
-	isUserLogged();
+	$(document).bind("backbutton", function(e){
+		if($.mobile.activePage.is('#home')){
+			e.preventDefault();
+			navigator.app.exitApp();
+		}
+		else {
+			navigator.app.backHistory()
+		}
+	}, false);
+	
 	$('#botonLogin').click(function(){
-		//alert('asdfasdfasdf');
+		alert('asdfasdfasdf');
 		var datosUsuario = $("#usuario").val();
 		var datosPassword = $("#pw").val();
 	 
@@ -75,88 +84,16 @@ function checkUser(tx) {
 }
 
 function errorCB(err) {
-    $.ajax({
-		type : 'POST',           
-		url : 'login.html',           
-		data:{
-			'usuario':datosUsuario,
-			'pw':datosPassword
-		},
-		beforeSend: function(){
-			$('#loading').show();
-		},
-		success : function(data) {
-			if(data==1){
-				alert("adfsdffsd");
-				alert(data);
-				$('#home').html(data)
-			} else {
-				alert("Invalid Login!!"); 
-			}
-			$('#loading').hide();
-		},
-		error : function(xhr, type) {
-			alert('server error occurred');
-			$('#loading').hide();
-		}
-	});
+    $.mobile.changePage('#login','slide');
 }
 
 function successQuery(tx, result) {
 	if(result.rows.length > 0){
-    	$.ajax({
-			type : 'POST',           
-			url : 'main.html',           
-			data:{
-				'usuario':datosUsuario,
-				'pw':datosPassword
-			},
-			beforeSend: function(){
-				$('#loading').show();
-			},
-			success : function(data) {
-				if(data==1){
-					alert("adfsdffsd");
-					alert(data);
-					$('#home').html(data)
-				} else {
-					alert("Invalid Login!!"); 
-				}
-				$('#loading').hide();
-			},
-			error : function(xhr, type) {
-				alert('server error occurred');
-				$('#loading').hide();
-			}
-		});
+    	$.mobile.changePage('#home','slide');
+		$('#login').hide();
 	}
-	else{
-		$.ajax({
-			type : 'POST',           
-			url : 'login.html',           
-			data:{
-				'usuario':datosUsuario,
-				'pw':datosPassword
-			},
-			beforeSend: function(){
-				$('#loading').show();
-			},
-			success : function(data) {
-				if(data==1){
-					alert("adfsdffsd");
-					alert(data);
-					$('#home').html(data)
-				} else {
-					alert("Invalid Login!!"); 
-				}
-				$('#loading').hide();
-			},
-			error : function(xhr, type) {
-				alert('server error occurred');
-				$('#loading').hide();
-			}
-		});
-	}
+	else
+		$.mobile.changePage('#login','slide');
 }
 
 function successCB() {
