@@ -24,3 +24,5 @@ function successQuery(tx, result) {
 function successCB() {
     //alert("success!");
 }
+
+document.addEventListener("backbutton", isUserLogged(), false);
