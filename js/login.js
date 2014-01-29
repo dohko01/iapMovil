@@ -1,5 +1,5 @@
-$(document).ready(function(){
-//document.addEventListener("deviceready", function(){
+//$(document).ready(function(){
+document.addEventListener("deviceready", function(){
 	isUserLogged();
 	
 	$('#botonLogin').click(function(){
@@ -40,7 +40,7 @@ function checkUser(tx) {
 //     tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
 	var usuario = $("#usuario").val();
 	var pw = $("#pw").val();
-	tx.executeSql('SELECT * FROM usuario WHERE usuario = \''+usuario+'\' AND pw = \''+pw+'\'', [], successQuery, errorCB);
+	tx.executeSql('SELECT * FROM usuario', [], successQuery, errorCB);
 	
 }
 
@@ -48,8 +48,11 @@ function errorCB(err) {
     alert("Error processing SQL: "+err.code);
 }
 
-function successQuerys() {
-    alert("success!");
+function successQuery(tx, result) {
+	if(results.rows.length > 0)
+    	alert("success!");
+	else
+		alert("No hay usuario loggeado");
 }
 
 function successCB() {
