@@ -28,20 +28,30 @@ document.addEventListener("deviceready", function(){
 	});
 });
 
+function createInfoData(){
+	var db = window.openDatabase("test", "1.0", "iapTest", 200000);
+	alert(db.transaction(insertUsuario, errorCB, successCB));
+}
+
+function insertUsuario(tx) {
+	var datosUsuario = $("#usuario").val();
+	var datosPassword = $("#pw").val();
+	 
+     tx.executeSql('DROP TABLE IF EXISTS usuario');
+     tx.executeSql('CREATE TABLE IF NOT EXISTS usuario (usuario, pw)');
+     tx.executeSql('INSERT INTO usuario (usuario, pw) VALUES ("'+datosUsuario+'", "'+datosPassword+'")');
+}
+
 function isUserLogged()
 {
-	var db = window.openDatabase("usuario", "1.0", "iapUsuario", 200000);
+	var db = window.openDatabase("test", "1.0", "iapTest", 200000);
 	alert(db.transaction(checkUser, errorCB, successCB));
 }
 
 function checkUser(tx) {
-//     tx.executeSql('DROP TABLE IF EXISTS DEMO');
-//     tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
-//     tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
 	var usuario = $("#usuario").val();
 	var pw = $("#pw").val();
-	tx.executeSql('SELECT * FROM usuario', [], successQuery, errorCB);
-	
+	tx.executeSql('SELECT * FROM usuario', [], successQuery, errorCB);	
 }
 
 function errorCB(err) {
@@ -49,7 +59,7 @@ function errorCB(err) {
 }
 
 function successQuery(tx, result) {
-	if(results.rows.length > 0)
+	if(result.rows.length > 0)
     	alert("success!");
 	else
 		alert("No hay usuario loggeado");
