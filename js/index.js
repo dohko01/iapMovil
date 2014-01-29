@@ -87,6 +87,8 @@ function errorCB(err) {
 		},
 		success : function(data) {
 			if(data==1){
+				alert("adfsdffsd");
+				alert(data);
 				$('#home').html(data)
 			} else {
 				alert("Invalid Login!!"); 
@@ -114,6 +116,8 @@ function successQuery(tx, result) {
 			},
 			success : function(data) {
 				if(data==1){
+					alert("adfsdffsd");
+					alert(data);
 					$('#home').html(data)
 				} else {
 					alert("Invalid Login!!"); 
@@ -139,6 +143,8 @@ function successQuery(tx, result) {
 			},
 			success : function(data) {
 				if(data==1){
+					alert("adfsdffsd");
+					alert(data);
 					$('#home').html(data)
 				} else {
 					alert("Invalid Login!!"); 
