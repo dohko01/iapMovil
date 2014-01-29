@@ -6,13 +6,11 @@ function isUserLogged()
 }
 
 function checkUser(tx) {
-	var usuario = $("#usuario").val();
-	var pw = $("#pw").val();
 	tx.executeSql('SELECT * FROM usuario', [], successQuery, errorCB);	
 }
 
 function errorCB(err) {
-    alert("Error processing SQL: "+err.code);
+    $.mobile.changePage('login.html','slide');
 }
 
 function successQuery(tx, result) {
@@ -24,5 +22,5 @@ function successQuery(tx, result) {
 }
 
 function successCB() {
-    alert("success!");
+    //alert("success!");
 }
