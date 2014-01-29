@@ -1,6 +1,7 @@
 // JavaScript Document
 function isUserLogged()
 {
+	alert("Asdfasdf");
 	var db = window.openDatabase("test", "1.0", "iapTest", 200000);
 	db.transaction(checkUser, errorCB, successCB);
 }
