@@ -37,7 +37,7 @@ $(document).ready(function(){
 
 function createInfoData(){
 	var db = window.openDatabase("test", "1.0", "iapTest", 200000);
-	db.transaction(insertUsuario, errorCB, successCB);
+	db.transaction(insertUsuario, errorCB, successCreate);
 }
 
 function insertUsuario(tx) {
@@ -72,4 +72,8 @@ function successQuery(tx, result) {
 
 function successCB() {
     alert("success!");
+}
+
+function successCreate() {
+    $.mobile.changePage('/main.html','slide');
 }
