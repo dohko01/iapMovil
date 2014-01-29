@@ -67,9 +67,7 @@ function errorCB(err) {
 
 function successQuery(tx, result) {
 	if(result.rows.length > 0)
-    	alert("login!");
-	else
-		alert("No hay usuario loggeado");
+    	$.mobile.changePage('main.html','slide');
 }
 
 function successCB() {
