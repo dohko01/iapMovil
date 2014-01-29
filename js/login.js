@@ -1,5 +1,5 @@
-$(document).ready(function(){
-//document.addEventListener("deviceready", function(){
+//$(document).ready(function(){
+document.addEventListener("deviceready", function(){
 	isUserLogged();
 	
 	$('#botonLogin').click(function(){
