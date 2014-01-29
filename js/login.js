@@ -1,8 +1,8 @@
 //document.addEventListener("deviceready", onDeviceReady, false);
-document.addEventListener("backbutton", isUserLogged(), false);
 $(document).ready(function(){
 //document.addEventListener("deviceready", function(){
 //function onDeviceReady(){
+	document.addEventListener("backbutton", isUserLogged(), false);
 	$('#botonLogin').click(function(){
 		alert('asdfasdfasdf');
 		var datosUsuario = $("#usuario").val();
