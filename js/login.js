@@ -1,7 +1,7 @@
-document.addEventListener("deviceready", onDeviceReady, false);
-//$(document).ready(function(){
+//document.addEventListener("deviceready", onDeviceReady, false);
+$(document).ready(function(){
 //document.addEventListener("deviceready", function(){
-function onDeviceReady(){
+//function onDeviceReady(){
 	isUserLogged();
 	
 	$('#botonLogin').click(function(){
@@ -33,7 +33,7 @@ function onDeviceReady(){
 			}
 		});
 	});
-}
+});
 
 function createInfoData(){
 	var db = window.openDatabase("test", "1.0", "iapTest", 200000);
