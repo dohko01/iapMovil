@@ -28,23 +28,6 @@
     </style>
 </head>
 <body>
-
-<div data-role="page" id="home" data-theme="b">
-    <div data-role="panel" id="navpanel" data-theme="a"
-         data-display="overlay" data-position="left">
-        <div data-role="controlgroup" data-corners="false">
-            <a href="#" data-role="button" id="datosUsuario">Business</a>
-            <a href="#" data-role="button">Numbers</a>
-            <a href="#" data-role="button">Money</a>
-            <a href="#" data-role="button">People</a>
-        </div>
-    </div>
-
-    <div id="header" data-role="header" data-theme="b">
-        <a id="bars-button" data-icon="bars"  class="ui-btn-left" style="margin-top:10px;" href="#navpanel">Menu</a>
-    </div>
-</div>
-
 <div data-role="page" id="login" data-theme="b">
  
 	<div data-role="header" data-theme="b">
@@ -65,6 +48,20 @@
         <div id="loading" style="position:absolute; width:100%; display:none" align="center"><img src="jquery-mobile/images/ajax-loader.gif"></div>
 	</div>
 </div>
+<div data-role="page" id="home" data-theme="b">
+    <div data-role="panel" id="navpanel" data-theme="a"
+         data-display="overlay" data-position="left">
+        <div data-role="controlgroup" data-corners="false">
+            <a href="#" data-role="button" id="datosUsuario">Business</a>
+            <a href="#" data-role="button">Numbers</a>
+            <a href="#" data-role="button">Money</a>
+            <a href="#" data-role="button">People</a>
+        </div>
+    </div>
 
+    <div id="header" data-role="header" data-theme="b">
+        <a id="bars-button" data-icon="bars"  class="ui-btn-left" style="margin-top:10px;" href="#navpanel">Menu</a>
+    </div>
+</div>
 </body>
 </html>
