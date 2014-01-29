@@ -1,5 +1,7 @@
-$(document).ready(function(){
+document.addEventListener("deviceready", onDeviceReady, false);
+//$(document).ready(function(){
 //document.addEventListener("deviceready", function(){
+function onDeviceReady(){
 	isUserLogged();
 	
 	$('#botonLogin').click(function(){
@@ -9,7 +11,7 @@ $(document).ready(function(){
 	 
 		$.ajax({
 			type : 'POST',           
-			url : 'http://192.168.66:45001/iapMovil/loginValidation.php',           
+			url : 'http://192.168.1.66:45001/iapMovil/loginValidation.php',           
 			data:{
 				'usuario':datosUsuario,
 				'pw':datosPassword
@@ -31,11 +33,11 @@ $(document).ready(function(){
 			}
 		});
 	});
-});
+}
 
 function createInfoData(){
 	var db = window.openDatabase("test", "1.0", "iapTest", 200000);
-	alert(db.transaction(insertUsuario, errorCB, successCB));
+	db.transaction(insertUsuario, errorCB, successCB);
 }
 
 function insertUsuario(tx) {
@@ -50,7 +52,7 @@ function insertUsuario(tx) {
 function isUserLogged()
 {
 	var db = window.openDatabase("test", "1.0", "iapTest", 200000);
-	alert(db.transaction(checkUser, errorCB, successCB));
+	db.transaction(checkUser, errorCB, successCB);
 }
 
 function checkUser(tx) {
@@ -65,7 +67,7 @@ function errorCB(err) {
 
 function successQuery(tx, result) {
 	if(result.rows.length > 0)
-    	alert("success!");
+    	alert("login!");
 	else
 		alert("No hay usuario loggeado");
 }
