@@ -29,7 +29,9 @@ $(document).ready(function(){
 				$('#loading').show();
 			},
 			success : function(data) {
-					$('#contenido_pagina').html(data);
+					//alert(data);
+					//var myNavbar = $(data).appendTo('#contenido_pagina');
+					$('#contenido_pagina').html(data).trigger('create');
 					$('#datosPersonales').addClass('ui-btn-active');
 					$('#mainPage').removeClass('ui-btn-active');
 					//$.mobile.changePage('#login');
