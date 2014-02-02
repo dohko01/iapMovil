@@ -42,6 +42,8 @@ $(document).ready(function(){
 			}
 		});
 	});
+	
+	$('#mainPage').addClass('ui-btn-active');
 });
 
 function createInfoData(){
@@ -59,7 +61,7 @@ function insertUsuario(tx) {
 }
 
 function successCreate() {
-    $.mobile.changePage('#home','slide');
+	window.location.replace('main.html');
 }
 
 function setOverrideBackbutton()

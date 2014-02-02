@@ -23,7 +23,7 @@ $(document).ready(function(){
 				if(data==1){
 					createInfoData(datosUsuario, datosPassword);
 				} else {
-					alert("Invalid Login!!"); 
+					alert("Verifica Usuario y Contraseña."); 
 				}
 				$('#loading').hide();
 			},
